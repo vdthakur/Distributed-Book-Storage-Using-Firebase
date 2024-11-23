@@ -8,9 +8,9 @@ This repository contains the implementation of a distributed data storage system
 
 - [Introduction](#introduction)
 - [Operations](#operations)
-  - [add_book](#1-add_book-40-points)
-  - [search_by_author](#2-search_by_author-30-points)
-  - [search_by_year](#3-search_by_year-30-points)
+  - [`add_book`](#1-add_book)
+  - [`search_by_author`](#2-search_by_author)
+  - [`search_by_year`](#3-search_by_year)
 - [Requirements](#requirements)
 - [Testing and Submission](#testing-and-submission)
 - [Usage](#usage)
@@ -32,53 +32,16 @@ Books are partitioned based on a hash of the author's name and stored in one of 
 
 ## Operations
 
-### 1. `add_book` (40 Points)
+### 1. `add_book` 
 
 This method stores book information in one of the two Firebase databases based on the hash value of the author's name.
 
-#### Method Signature:
-```python
-def add_book(book_id: str, book_data: dict) -> None:
-    """
-    Adds a book to the appropriate Firebase database based on the hash of the author's name.
+### 2. `search_by_author` 
 
-    Args:
-        book_id (str): Unique identifier for the book.
-        book_data (dict): JSON object containing book information:
-            {
-                "author": str,
-                "title": str,
-                "year": int,
-                "price": float
-            }
-    """
+This method retrieves all books written by a specific author from the Firebase databases. It queries the appropriate database without downloading unnecessary data.
 
-python3 your_script.py add_book 100 '{"author": "John Smith", "title": "Book Title", "year": 2023, "price": 29.99}'
+### 3. `search_by_year` 
 
+This method retrieves all books published in a specified year from the Firebase databases. It queries the appropriate database without downloading unnecessary data.
 
-def search_by_author(author: str) -> list:
-    """
-    Searches for all books written by the specified author.
-
-    Args:
-        author (str): The author's name.
-
-    Returns:
-        list: A list of JSON objects representing the books written by the author.
-    """
-
-python3 your_script.py search_by_author "John Smith"
-
-def search_by_year(year: int) -> list:
-    """
-    Searches for all books published in the specified year.
-
-    Args:
-        year (int): The publication year.
-
-    Returns:
-        list: A list of JSON objects representing the books published in the specified year.
-    """
-
-python3 your_script.py search_by_year 2023
 
