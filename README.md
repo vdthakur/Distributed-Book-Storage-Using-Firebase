@@ -32,16 +32,29 @@ Books are partitioned based on a hash of the author's name and stored in one of 
 
 ## Operations
 
-### 1. `add_book` 
+### 1. `add_book`
 
 This method stores book information in one of the two Firebase databases based on the hash value of the author's name.
 
-### 2. `search_by_author` 
+*Execution:*  
+*`python3 script.py add_book 100 '{"author": "John Smith", "title": "Book Title", "year": 2023, "price": 19.99}'`*
+
+---
+
+### 2. `search_by_author`
 
 This method retrieves all books written by a specific author from the Firebase databases. It queries the appropriate database without downloading unnecessary data.
 
-### 3. `search_by_year` 
+*Execution:*  
+*`python3 script.py search_by_author "<author_name>"`*
+
+---
+
+### 3. `search_by_year`
 
 This method retrieves all books published in a specified year from the Firebase databases. It queries the appropriate database without downloading unnecessary data.
+
+*Execution:*  
+*`python3 script.py search_by_year 2023`*
 
 
